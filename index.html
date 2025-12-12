@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Umm E Hani  Portfolio</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+      :root{
+      --navy: #061628;           
+      --white: #ffffff;
+      --soft-white: #fbfcfe;
+      --muted: #c9d6f5;
+      --card-radius: 14px;
+      --gap: 22px;
+      --max-width: 1200px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --transition: 220ms ease;
+      --accent-yellow: #ffd966; 
+    }
+
+    
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    
+    .wrap{
+      max-width:var(--max-width);
+      margin:28px auto;
+      padding:18px;
+    }
+
+   
+    header{
+      position:sticky;
+      top:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      z-index:100;
+    }
+    .brand{
+      font-family:'Playfair Display', serif;
+      font-size:22px;
+      font-weight:700;
+      color:var(--white);
+      margin-left:6px;
+    }
+    nav.topnav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    nav.topnav a{
+      text-decoration:none;
+      background:transparent;
+      color:var(--white);
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:600;
+      transition: all var(--transition);
+    }
+    
+    nav.topnav a:hover{
+      background: var(--soft-white);
+      color: var(--navy);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+
+    
+    section{
+      padding:36px 0;
+      width:100%;
+    }
+    .section-inner{
+      display:block;
+      gap:var(--gap);
+    }
+    h1.page-title{
+      font-size:36px;
+      color:var(--white);
+      margin-bottom:12px;
+      font-weight:800;
+    }
+    h2.section-title{
+      font-family:'Playfair Display', serif;
+      font-size:30px;
+      color:var(--white);
+      margin-bottom:18px;
+    }
+    p.lead{
+      color:var(--white);
+      font-size:18px;
+      max-width:900px;
+    }
+
+    
+    .hero{
+      min-height:72vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding-top:40px;
+      padding-bottom:40px;
+    }
+    .hero-card{
+      background: rgba(255,255,255,0.04);
+      border-radius:18px;
+      padding:40px 36px;
+      max-width:980px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .hero-card h1{
+      margin:0 0 14px 0;
+      font-size:44px;
+      color:var(--white);
+      line-height:1.05;
+    }
+    .hero-card p{
+      color:var(--white);
+      opacity:0.95;
+      font-size:18.5px;
+      margin-bottom:18px;
+      text-align:center;
+    }
+
+    
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-white{
+      background:var(--white);
+      color:var(--navy);
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      border:2px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+      cursor:pointer;
+      transition: all var(--transition);
+    }
+    .btn-white:hover{transform: translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,0.28)}
+
+    
+    .about-grid{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .about-text{
+      flex:1 1 520px;
+      background: rgba(255,255,255,0.06);
+      border-radius:14px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .about-text p{
+      color:var(--white);
+      font-size:16.5px;
+      opacity:0.98;
+      text-align:left;
+    }
+    .about-photo{
+      width:320px;
+      height:320px;
+      border-radius:14px;
+      overflow:hidden;
+      border:6px solid var(--white);
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+      flex:0 0 320px;
+    }
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+    .skill-card{
+      background:var(--white);
+      color:var(--navy);
+      padding:20px;
+      border-radius:12px;
+      min-height:110px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      transition: all var(--transition);
+    }
+    .skill-card:hover{transform: translateY(-6px)}
+
+    
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:18px;
+    }
+    .project-card{
+      background:var(--white);
+      color:var(--navy);
+      border-radius:12px;
+      padding:18px;
+      min-height:160px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+      transition:all var(--transition);
+    }
+    .project-card h3{margin:0 0 8px 0; font-size:18px}
+    .project-card p{margin:0 0 14px 0; color:var(--navy); opacity:0.9}
+    .btn-navy{
+      background:var(--navy);
+      color:var(--white);
+      padding:10px 14px;
+      border-radius:10px;
+      border:2px solid rgba(255,255,255,0.06);
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      align-self:flex-start;
+      transition:all var(--transition);
+    }
+    .btn-navy:hover{transform: translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,0.22)}
+
+    
+    .experience-layout{display:flex;flex-direction:column;gap:22px}
+    .exp-row{display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap}
+    .exp-card{
+      background:var(--white);
+      color:var(--navy);
+      border-radius:12px;
+      padding:18px;
+      flex:1 1 30%;
+      min-width:240px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      transition:all var(--transition);
+    }
+    .exp-card h3{margin-bottom:8px}
+    .exp-center{display:flex;justify-content:center}
+
+    
+    .cert-grid-top{
+      display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px;
+    }
+    .cert-card{
+      background:var(--white);
+      color:var(--navy);
+      padding:20px;border-radius:12px;min-width:280px;flex:1 1 45%;
+      box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    }
+    .cert-card h3{margin-bottom:10px}
+    .cert-btn{
+      background:var(--navy); color:var(--white); padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700; border:none; cursor:pointer;
+    }
+    .cert-btn:hover{transform: translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,0.18)}
+
+    
+    .contact-grid{display:grid;grid-template-columns: 1fr 380px; gap:26px; align-items:start}
+    .contact-card{
+      background: rgba(255,255,255,0.04); padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);
+    }
+    .contact-form input, .contact-form textarea{
+      width:100%; padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.02); color:var(--white);
+      margin-top:10px;
+    }
+    .contact-form label{color:var(--white); font-weight:600; margin-top:10px; display:block}
+    .contact-form .btn-submit{background:var(--white); color:var(--navy); padding:10px 14px;border-radius:10px;border:none;font-weight:800; cursor:pointer; margin-top:12px}
+    .contact-info{background:var(--white); color:var(--navy); padding:18px;border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+    .contact-info h3{margin-top:0}
+    .contact-row{display:flex;align-items:center;gap:12px;margin:12px 0}
+    .contact-row svg{width:22px;height:22px;fill:var(--navy); flex:0 0 22px}
+
+    
+    .socials-center{display:flex; gap:14px; justify-content:center; margin-top:18px}
+    .socials-center a{display:inline-flex; width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;background:var(--white); color:var(--navy); text-decoration:none; box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+    .socials-center a svg{width:20px;height:20px; fill:var(--navy)}
+
+    
+    footer{margin-top:28px;text-align:center;color:var(--muted);padding:18px 0}
+
+    
+    @media (max-width:980px){
+      .about-grid{flex-direction:column; align-items:center}
+      .contact-grid{grid-template-columns:1fr}
+      .exp-row{flex-direction:column}
+      .skill-card{min-height:90px}
+      header{padding:8px 14px; position:sticky; top:8px}
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    
+    <header>
+      <div class="brand">UMM E HANI</div>
+
+      <nav class="topnav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <div class="hero-card">
+        <h1 id="home-title">HELLO! I AM UMM E HANI</h1>
+
+        
+        <p>
+          I’m a web developer, software engineer, and mathematician who finds joy in turning abstract numbers
+          into practical tools and elegant code. I love creating clean interfaces and efficient programs that
+          solve problems and simplify daily tasks , from calculators and simulations to full web projects.
+          Learning drives me: I combine rigorous mathematical thinking with modern coding practices to build
+          reliable, maintainable solutions that help students, researchers and users get work done faster.
+          Welcome! explore my projects, see my certificates, and reach out if you want something built with care.
+        </p>
+
+       
+        <div class="hero-actions" style="margin-top:20px">
+          <a class="btn-white" id="btnWork" href="#projects">VIEW MY WORK</a>
+          <a class="btn-white" id="btnContact" href="#contact">CONTACT ME</a>
+        </div>
+      </div>
+    </section>
+
+   
+    <section id="about" aria-labelledby="about-title">
+      <h2 class="section-title" id="about-title">About Me</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          
+          <p>
+            About me? Ok I completed my higher school in 2023 with an A+ grade and completed intermediate in 2025 with an A+ grade as well.
+            I’m currently enrolled at FAST NUCES University pursuing a degree in Software Engineering. My journey blends
+            strong mathematical foundations with hands-on coding . I enjoy designing algorithms, optimizing solutions,
+            and learning new programming languages. Over the years I have built C projects for engineering calculations,
+            web tools for user-friendly interfaces, and visual designs that communicate clearly. I focus on clarity,
+            correctness and elegance in both code and presentation. When I’m not programming, I love making visual content,
+            exploring numerical methods, and mentoring students to help them gain confidence in math and programming.
+          </p>
+
+          <div style="margin-top:16px">
+            <a class="btn-white" href="#projects" style="padding:10px 14px; font-weight:700">MY WORK</a>
+            <a class="btn-white" href="#certificates" style="padding:10px 14px; font-weight:700; margin-left:10px">ACHIEVEMENTS</a>
+          </div>
+        </div>
+
+        <div class="about-photo">
+          
+          <img src="me.jpg" alt="Umm E Hani — photo">
+        </div>
+      </div>
+    </section>
+
+   
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 class="section-title" id="skills-title">Skills</h2>
+
+      <div class="skills-grid" role="list">
+       
+        <div class="skill-card" role="listitem"> &lt;/&gt;  HTML</div>
+        <div class="skill-card" role="listitem"> 🎨  CSS</div>
+        <div class="skill-card" role="listitem"> 🟨  JavaScript</div>
+        <div class="skill-card" role="listitem"> ⚙️  C</div>
+        <div class="skill-card" role="listitem"> ⚙️  C++</div>
+        <div class="skill-card" role="listitem"> 🐍  Python</div>
+        <div class="skill-card" role="listitem"> ∫  Integration</div>
+        <div class="skill-card" role="listitem"> 🔭  Meta Physics</div>
+        <div class="skill-card" role="listitem"> 🎬  VFX / Editing</div>
+        <div class="skill-card" role="listitem"> ✒️  Canva & Design</div>
+      </div>
+    </section>
+
+    
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 class="section-title" id="projects-title">Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <h3>UNIVERSITY POINT MANAGEMENT SYSTEM</h3>
+            <p>A console application built with C language for university students  to ensure efficient and accurate point (van) management , structured, fast and easy to use.</p>
+          </div>
+          <a class="btn-navy" href="https://drive.google.com/drive/folders/1yBDzbEIfbYC4djm9dX1h9nVxjVlrwYqn?usp=sharing" target="_blank">VIEW CODES</a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>TEMPERATURE CONVERTER</h3>
+            <p>Web-based temperature converter: convert Celsius ↔ Fahrenheit instantly with a clean UI and validation.</p>
+          </div>
+          <a class="btn-navy" href="https://drive.google.com/drive/folders/1CqFr4SerfU5_ie06YmK22ujo8wMfOFPF?usp=sharing" target="_blank">VIEW CODES</a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>FLUX CALCULATOR</h3>
+            <p>C program for electric flux calculations designed for lab assignments and quick verification of theory.</p>
+          </div>
+          <a class="btn-navy" href="https://drive.google.com/drive/folders/1-cui8HuC8BfStBssxIFwgXcBPB4IJfuz?usp=sharing" target="_blank">VIEW CODES</a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>CAPACITANCE CALCULATOR</h3>
+            <p>Console utility in C to compute capacitance values (series & parallel) for practical electronics tasks.</p>
+          </div>
+          <a class="btn-navy" href="https://drive.google.com/drive/folders/1-cui8HuC8BfStBssxIFwgXcBPB4IJfuz?usp=sharing" target="_blank">VIEW CODES</a>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <h3>PF THEORY ASSIGNMENTS</h3>
+            <p>PF Theory assignment solutions implemented in C to demonstrate clear problem solving and language proficiency.</p>
+          </div>
+          <a class="btn-navy" href="https://drive.google.com/drive/folders/1kJgup3fr5Y6EOBSsWFyQjNPJL1yPKB2h?usp=sharing" target="_blank">VIEW CODES</a>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="experience" aria-labelledby="exp-title">
+      <h2 class="section-title" id="exp-title">Experience</h2>
+
+      <div class="experience-layout">
+        
+        <div class="exp-row">
+          <div class="exp-card">
+            <h3>Mathematics Teacher at Programmer School</h3>
+            <p>
+              Designed lesson plans, interactive worksheets and assessments. I used examples and step-by-step
+              explanations to help students build intuition and confidence. I measured progress with quizzes and
+              individualized feedback sessions, helping students achieve measurable improvement.
+            </p>
+          </div>
+
+          <div class="exp-card">
+            <h3>Canva Editing & Visual Design</h3>
+            <p>
+              Created eye-catching visuals for social media, presentations, and academic posters. I focus on
+              hierarchy, contrast and typography so the message is clear and memorable. Delivered assets in deadlines
+              and iterated with feedback for best results.
+            </p>
+          </div>
+
+          <div class="exp-card">
+            <h3>Headship & Leadership</h3>
+            <p>
+              Led small teams, coordinated tasks, assigned responsibilities, and maintained schedules. Oversaw
+              communication between members and ensured project delivery by breaking down large tasks into manageable steps.
+            </p>
+          </div>
+        </div>
+
+        
+        <div class="exp-center">
+          <div class="exp-card" style="max-width:680px;">
+            <h3>PNA Delegate in FAST NUCES ICP Simulation</h3>
+            <p>
+              Represented the PMLN AMNA BATOOL CHARACTER in a formal simulation, prepared briefing documents, coordinated with teammates,
+              and negotiated with other delegates. Gained experience in public speaking, policy analysis and diplomatic discussion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="certificates" aria-labelledby="certs-title">
+      <h2 class="section-title" id="certs-title">Certificates</h2>
+
+      <div class="cert-grid-top">
+        <div class="cert-card" style="flex:1 1 48%;">
+          <h3>PNA Delegate — ICP Simulation (FAST NUCES)</h3>
+          <p style="color:var(--navy); opacity:0.9">Participation certificate for representing PMLN AMNA BATOOL CHARACTER in the ICP simulation.</p>
+          <div style="margin-top:12px"><a class="cert-btn" href="https://drive.google.com/file/d/1gtJLDhe1flp50yoFoW8NF05S7_LW2OxX/view?usp=sharing" target="_blank">VIEW CERTIFICATE</a></div>
+        </div>
+
+        <div class="cert-card" style="flex:1 1 48%;">
+          <h3>Completion — Higher Secondary Phase I</h3>
+          <p style="color:var(--navy); opacity:0.9">Awarded for academic excellence, moral behaviour and completion of Higher Secondary Phase I.</p>
+          <div style="margin-top:12px"><a class="cert-btn" href="https://drive.google.com/file/d/1HBUzkUct6dErhIGnwlfZyEn6dWv5ko2n/view?usp=sharing" target="_blank">VIEW CERTIFICATE</a></div>
+        </div>
+      </div>
+
+      
+      <div style="display:flex; justify-content:center; margin-top:18px;">
+        <div class="cert-card" style="max-width:860px; width:100%; text-align:center;">
+          <h3>Completion — Higher Secondary Phase II (CAST)</h3>
+          <p style="color:var(--navy); opacity:0.9">Phase II certificate completed with A+ grade demonstrating consistent academic performance given by my cast.</p>
+          <div style="margin-top:12px"><a class="cert-btn" href="https://drive.google.com/file/d/1lAkdgNPnDxr4kf7tJB1ctIJpedO7xXHe/view?usp=sharing" target="_blank">VIEW CERTIFICATE</a></div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Contact Me</h2>
+
+      <div class="contact-grid">
+       
+        <div class="contact-card contact-form" aria-labelledby="form-title">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" required>
+
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" required>
+
+          <label for="phone">Mobile Number</label>
+          <input id="phone" type="tel" placeholder="+9234xxxxxxx" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Write your message..." required></textarea>
+
+          <button class="btn-submit" id="sendBtn" type="button">Send Message</button>
+          <div id="sentMsg" style="display:none;margin-top:12px;color:var(--white);font-weight:700">Message sent — thank you!</div>
+        </div>
+
+       
+        <aside class="contact-info" aria-label="contact details">
+          <h3>Get in touch</h3>
+
+          
+          <div class="contact-row">
+            
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5A2.5 2.5 0 014.5 4h15A2.5 2.5 0 0122 6.5v11A2.5 2.5 0 0119.5 20h-15A2.5 2.5 0 012 17.5v-11zM4.5 6.5L12 11l7.5-4.5"/></svg>
+            <div>
+              <div style="font-weight:700">Email</div>
+              <div>hanitanweer@gmail.com</div>
+            </div>
+          </div>
+
+          
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.79a15.05 15.05 0 006.6 6.6l2.2-2.2a1 1 0 011.05-.24 11 11 0 003.45.55 1 1 0 011 1v3.4a1 1 0 01-1 1A18 18 0 013 5a1 1 0 011-1h3.4a1 1 0 011 1c0 1.2.18 2.4.54 3.45a1 1 0 01-.25 1.05l-2.09 2.29z"/></svg>
+            <div>
+              <div style="font-weight:700">Phone</div>
+              <div>+9234556690</div>
+            </div>
+          </div>
+
+          
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C3.88 3.5 3 4.38 3 5.48c0 1.1.88 1.98 1.98 1.98h.02C6.08 7.46 6.96 6.58 6.96 5.48 6.96 4.38 6.08 3.5 4.98 3.5zM3.5 8.98h3v11.5h-3v-11.5zM9 8.98h2.86v1.56h.04c.4-.76 1.37-1.56 2.82-1.56 3.02 0 3.58 1.98 3.58 4.56v6.94h-3v-6.15c0-1.47-.03-3.36-2.05-3.36-2.05 0-2.36 1.6-2.36 3.25v6.26h-3V8.98z"/></svg>
+            <div>
+              <div style="font-weight:700">LinkedIn</div>
+              <div><a href="https://www.linkedin.com/in/Umm-e-hani" target="_blank" style="color:var(--navy); text-decoration:none">Umm e hani</a></div>
+            </div>
+          </div>
+
+         
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.81 4.81 0 0012 8.2zm0 7.9A3.1 3.1 0 1115.1 13 3.1 3.1 0 0112 16.1zM18.4 6.3a1.1 1.1 0 11-1.1-1.1 1.1 1.1 0 011.1 1.1z"/></svg>
+            <div>
+              <div style="font-weight:700">Instagram</div>
+              <div>@hany__.hh</div>
+            </div>
+          </div>
+
+          
+          <div class="contact-row">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.74 3.07 8.76 7.33 10.17.54.1.73-.24.73-.53 0-.26-.01-.95-.02-1.86-2.98.65-3.61-1.44-3.61-1.44-.49-1.26-1.2-1.6-1.2-1.6-.98-.67.07-.66.07-.66 1.08.08 1.65 1.12 1.65 1.12.96 1.65 2.51 1.17 3.12.9.1-.7.38-1.17.69-1.44-2.38-.27-4.88-1.19-4.88-5.28 0-1.17.42-2.12 1.11-2.87-.11-.27-.48-1.36.11-2.84 0 0 .9-.29 2.95 1.1A10.22 10.22 0 0112 6.9c.91.004 1.83.12 2.69.35 2.05-1.39 2.95-1.1 2.95-1.1.59 1.48.22 2.57.11 2.84.69.75 1.11 1.7 1.11 2.87 0 4.1-2.5 5.01-4.88 5.28.39.34.73 1.02.73 2.06 0 1.48-.01 2.67-.01 3.03 0 .29.19.64.74.53C20 20.36 23.1 16.34 23.1 11.6 23.1 5.33 18.27.5 12 .5z"/></svg>
+            <div>
+              <div style="font-weight:700">GitHub</div>
+              <div><a id="githubLink" href="https://github.com/IUMMEHANI" target="_blank" style="color:var(--navy); text-decoration:none">IUMMEHANI</a></div>
+            </div>
+          </div>
+
+          
+          <div class="socials-center" style="margin-top:14px">
+            <a href="https://instagram.com/hany__.hh" target="_blank" title="Instagram">
+              
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6.2A4.8 4.8 0 1016.8 13 4.81 4.81 0 0012 8.2z"/></svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/Umm-e-hani" target="_blank" title="LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C3.88 3.5 3 4.38 3 5.48c0 1.1.88 1.98 1.98 1.98h.02C6.08 7.46 6.96 6.58 6.96 5.48 6.96 4.38 6.08 3.5 4.98 3.5zM3.5 8.98h3v11.5h-3v-11.5zM9 8.98h2.86v1.56h.04c.4-.76 1.37-1.56 2.82-1.56 3.02 0 3.58 1.98 3.58 4.56v6.94h-3v-6.15c0-1.47-.03-3.36-2.05-3.36-2.05 0-2.36 1.6-2.36 3.25v6.26h-3V8.98z"/></svg>
+            </a>
+
+            <a id="ghSmall" href="https://github.com/IUMMEHANI" target="_blank" title="GitHub">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.74 3.07 8.76 7.33 10.17.54.1.73-.24.73-.53 0-.26-.01-.95-.02-1.86-2.98.65-3.61-1.44-3.61-1.44-.49-1.26-1.2-1.6-1.2-1.6-.98-.67.07-.66.07-.66 1.08.08 1.65 1.12 1.65 1.12.96 1.65 2.51 1.17 3.12.9.1-.7.38-1.17.69-1.44-2.38-.27-4.88-1.19-4.88-5.28 0-1.17.42-2.12 1.11-2.87-.11-.27-.48-1.36.11-2.84 0 0 .9-.29 2.95 1.1A10.22 10.22 0 0112 6.9c.91.004 1.83.12 2.69.35 2.05-1.39 2.95-1.1 2.95-1.1.59 1.48.22 2.57.11 2.84.69.75 1.11 1.7 1.11 2.87 0 4.1-2.5 5.01-4.88 5.28.39.34.73 1.02.73 2.06 0 1.48-.01 2.67-.01 3.03 0 .29.19.64.74.53C20 20.36 23.1 16.34 23.1 11.6 23.1 5.33 18.27.5 12 .5z"/></svg>
+            </a>
+          </div>
+
+          <div style="margin-top:18px;text-align:center;color:var(--muted)"><small>© <span id="year"></span> Umm E Hani — All rights reserved</small></div>
+        </aside>
+      </div>
+    </section>
+
+    <footer style="margin-top:28px; text-align:center; color:rgba(255,255,255,0.7);">
+      Built with care • Umm E Hani
+    </footer>
+  </div>
+
+  
+  <script>
+    
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    
+    document.getElementById('btnWork').addEventListener('mouseenter', e=>{
+      e.target.style.transform = 'translateY(-3px) scale(1.02)';
+      e.target.style.boxShadow = '0 18px 40px rgba(0,0,0,0.3)';
+    });
+    document.getElementById('btnWork').addEventListener('mouseleave', e=>{
+      e.target.style.transform = '';
+      e.target.style.boxShadow = '';
+    });
+
+    document.getElementById('btnContact').addEventListener('mouseenter', e=>{
+      e.target.style.transform = 'translateY(-3px) scale(1.02)';
+      e.target.style.boxShadow = '0 18px 40px rgba(0,0,0,0.3)';
+    });
+    document.getElementById('btnContact').addEventListener('mouseleave', e=>{
+      e.target.style.transform = '';
+      e.target.style.boxShadow = '';
+    });
+
+    
+    const sendBtn = document.getElementById('sendBtn');
+    const sentMsg = document.getElementById('sentMsg');
+
+    sendBtn.addEventListener('click', ()=>{
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        alert('Please fill name, email, and message before sending.');
+        return;
+      }
+
+      
+      sentMsg.style.display = 'block';
+      
+      setTimeout(()=>{ sentMsg.style.display = 'none'; }, 4000);
+
+      
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('message').value = '';
+    });
+
+    
+    const faders = document.querySelectorAll('section');
+    const appearOptions = {threshold:0.12, rootMargin:'0px 0px -80px 0px'};
+    const appearObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          entry.target.style.transition = 'opacity 800ms ease-out, transform 800ms ease-out';
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          obs.unobserve(entry.target);
+        } else {
+          
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(f => {
+      f.style.opacity = 0;
+      f.style.transform = 'translateY(30px)';
+      appearObserver.observe(f);
+    });
+
+   
+    document.getElementById('ghSmall').addEventListener('click', (e)=>{
+      const url = e.currentTarget.getAttribute('href');
+      if(url && !url.includes('GITHUB_LINK')) window.open(url, '_blank');
+    });
+    
+
+  </script>
+</body>
+</html>
